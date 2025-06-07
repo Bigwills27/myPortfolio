@@ -1,0 +1,355 @@
+/* Interview Page Styles */
+
+/* Inherit CSS variables and fonts from style.css */
+@import url('style.css');
+
+body {
+    background-color: var(--black);
+    color: var(--white);
+    font-family: inter, sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+    position: relative;
+}
+
+.header {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: 100;
+}
+
+.logo {
+    text-decoration: none;
+    color: var(--white);
+    font-family: prata;
+    font-weight: 100;
+    font-size: 0.88em;
+    position: relative;
+    transition: 0.5s 0.1s ease-in;
+}
+
+.logo:before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    height: 100%;
+    width: 53%;
+    background-color: var(--yellow);
+    padding: 0.4rem 0.4rem;
+    z-index: -1;
+    transition: 0.8s ease-in-out;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.logo:hover::before {
+    transform: scaleX(1);
+}
+
+.logo:after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    height: 100%;
+    width: 37%;
+    background-color: var(--yellow);
+    padding: 0.4rem 0.4rem;
+    z-index: -1;
+    transition: 0.8s 0.1s ease-in-out;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+}
+
+.logo:hover::after {
+    transform: scaleX(1);
+}
+
+.logo:hover {
+    color: var(--black);
+    word-spacing: 5px;
+}
+
+/* Welcome */
+.welcome-screen {
+    text-align: center;
+    max-width: 600px;
+    animation: fadeIn 1s ease;
+}
+
+.welcome-title {
+    font-family: prata;
+    font-size: 2.5rem;
+    font-weight: 100;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.welcome-subtitle {
+    font-size: 1.1rem;
+    color: var(--gray);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.start-btn {
+    background-color: var(--yellow);
+    color: var(--black);
+    border: none;
+    padding: 1rem 2rem;
+    font-family: prata;
+    font-size: 1rem;
+    font-weight: 100;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.start-btn:hover {
+    background-color: var(--black);
+    color: var(--yellow);
+    border: 1px solid var(--yellow);
+    border-radius: 8px;
+}
+
+/* Quiz */
+.quiz-container {
+    display: none;
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+}
+
+.progress-container {
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.progress-text {
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-family: inter;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background-color: var(--light-gray);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--yellow);
+    width: 0;
+    transition: width 0.5s ease;
+}
+
+.question-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.question {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.5s ease;
+}
+
+.question.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.question.prev {
+    transform: translateX(-100%);
+}
+
+.question-text {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+
+.question-explanation {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-top: 1rem;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.question-explanation.show {
+    opacity: 1;
+    max-height: 200px;
+    margin-top: 1.5rem;
+}
+
+.show-explanation {
+    color: var(--yellow);
+    background: none;
+    border: none;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 1rem;
+    transition: color 0.3s ease;
+}
+
+.show-explanation:hover {
+    color: var(--white);
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.yes-btn,
+.no-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 2px solid;
+    background: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inter;
+}
+
+.yes-btn {
+    color: var(--yellow);
+    border-color: var(--yellow);
+}
+
+.yes-btn:hover {
+    background-color: var(--yellow);
+    color: var(--black);
+    border-radius: 8px;
+}
+
+.no-btn {
+    color: var(--gray);
+    border-color: var(--gray);
+}
+
+.no-btn:hover {
+    background-color: var(--light-gray);
+    color: var(--white);
+    border-radius: 8px;
+}
+
+/* Result */
+.result-screen {
+    display: none;
+    text-align: center;
+    max-width: 600px;
+    animation: fadeIn 1s ease;
+}
+
+.result-title {
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.result-message {
+    font-size: 1.1rem;
+    color: var(--gray);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-btn {
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: inter;
+}
+
+.primary-cta {
+    background-color: var(--yellow);
+    color: var(--black);
+    border: 1px solid var(--yellow);
+}
+
+.primary-cta:hover {
+    background-color: var(--black);
+    color: var(--yellow);
+    border-radius: 8px;
+}
+
+.secondary-cta {
+    background-color: var(--black);
+    color: var(--yellow);
+    border: 1px solid var(--yellow);
+}
+
+.secondary-cta:hover {
+    background-color: var(--yellow);
+    color: var(--black);
+    border-radius: 8px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .welcome-title,
+    .question-text {
+        font-size: 1.8rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .header {
+        top: 1rem;
+        left: 1rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}

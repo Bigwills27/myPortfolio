@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boluwatife Ajibero - Quick Interview</title>
+
+    <!-- Portfolio favicon -->
+    <link rel="shortcut icon" href="./Assets/Logos/AJB-logo.svg" type="image/x-icon">
+
+    <!-- Base and interview styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="interview.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Prata:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="header">
+        <a href="#" class="logo">Boluwatife Ajibero</a>
+    </div>
+
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div class="welcome-screen" id="welcomeScreen">
+            <h1 class="welcome-title">
+                Let's make this <span class="highlighted">faster</span>
+            </h1>
+            <p class="welcome-subtitle">
+                Answer YES or NO in your mind - I'll help you decide if I'm your next developer in under 2 minutes.
+                <br><br>
+                This is designed to help <em>you</em> decide even faster.
+            </p>
+            <button class="start-btn" onclick="startQuiz()">Start Quick Interview</button>
+        </div>
+
+        <!-- Quiz Container -->
+        <div class="quiz-container" id="quizContainer">
+            <div class="progress-container">
+                <div class="progress-text">
+                    Question <span id="currentQuestion">1</span> of <span id="totalQuestions">12</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <div class="question-container" id="questionContainer">
+                <!-- Questions will be inserted here -->
+            </div>
+
+            <div class="controls">
+                <button class="yes-btn" onclick="nextQuestion()">YES</button>
+                <button class="no-btn" onclick="nextQuestion()">NO</button>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div class="result-screen" id="resultScreen">
+            <h1 class="result-title">
+                If you answered <span class="highlighted">YES</span> to most of these, let's talk.
+            </h1>
+            <p class="result-message">
+                If not, no hard feelings - you just saved us both time.<br>
+                But if I caught your attention, here's how to reach me:
+            </p>
+            <div class="cta-buttons">
+                <a href="mailto:bajibero@gmail.com" class="cta-btn primary-cta">Schedule a Quick Chat</a>
+                <a href="https://boluwatifeajibero.vercel.app/" class="cta-btn secondary-cta">See My Work</a>
+                <a href="./Assets/Boluwatife Ajibero.pdf" class="cta-btn secondary-cta">Get My CV</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Move inline script to external JS -->
+    <script src="interview.js"></script>
+</body>
+
+</html>
