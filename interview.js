@@ -128,6 +128,22 @@ function showResults() {
   document.getElementById("resultScreen").style.display = "block";
 }
 
+// Loader functionality
+document.addEventListener("DOMContentLoaded", () => {
+  const loaderOverlay = document.getElementById("loaderOverlay");
+
+  // Hide loader after 2 seconds
+  setTimeout(() => {
+    if (loaderOverlay) {
+      loaderOverlay.classList.add("hidden");
+      // Remove from DOM after transition
+      setTimeout(() => {
+        loaderOverlay.style.display = "none";
+      }, 500);
+    }
+  }, 2000);
+});
+
 // Initialize on DOM ready
 document.addEventListener("DOMContentLoaded", () => {
   // Additional setup
