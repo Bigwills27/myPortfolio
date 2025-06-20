@@ -233,7 +233,7 @@ article {
     padding-inline: 1rem;
     padding-top: 5rem;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
 }
 
