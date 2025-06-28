@@ -217,7 +217,8 @@
         <div class="cert-container">
             <!-- Certificate Card -->
             <div class="cert-card">
-                <img src="./Assets/89-professional-foundations-certificate-boluwatife-ajibero.png" alt="Certificate 1">
+                <img src="./Assets/Certificates/89-professional-foundations-certificate-boluwatife-ajibero.png"
+                    alt="Certificate 1" class="cert-image-clickable" data-title="Professional Foundations">
                 <div class="cert-info">
                     <h3>Professional Foundations</h3>
                     <p><strong>Issued:</strong> 15th April 2025</p>
@@ -227,8 +228,8 @@
             </div>
 
             <div class="cert-card">
-                <img src="./Assets/Fundamentals of Data Science in Precision Medicine and Cloud Computing.png"
-                    alt="Certificate 1">
+                <img src="./Assets/Certificates/Fundamentals of Data Science in Precision Medicine and Cloud Computing.png"
+                    alt="Certificate 1" class="cert-image-clickable" data-title="Data Science in Precision Medicine and Cloud Computing">
                 <div class="cert-info">
                     <h3>Data Science in Precision Medicine and Cloud Computing</h3>
                     <p><strong>Issued:</strong> 13th June 2025</p>
@@ -239,8 +240,18 @@
             </div>
 
             <div class="cert-card">
-                <img src="./Assets/89-professional-foundations-certificate-boluwatife-ajibero.png" alt="Certificate 1"
-                    style="filter: blur(8px);">
+                <img src="./Assets/Certificates/aws-certified-cloud-practitioner.png" alt="Certificate 1" class="cert-image-clickable" data-title="AWS Cloud Practitioner">
+                <div class="cert-info">
+                    <h3>AWS Cloud Practitioner</h3>
+                    <p><strong>Issued:</strong> June 23</p>
+                    <p><strong>By:</strong> AWS</p>
+                    <p class="cert-summary">Certifed AWS Cloud Practitioner</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <img src="./Assets/Certificates/89-professional-foundations-certificate-boluwatife-ajibero.png"
+                    alt="Certificate 1" style="filter: blur(8px);" class="cert-image-clickable" data-title="Backend Web Development">
                 <div class="cert-info">
                     <h3>Backend Web Development</h3>
                     <p><strong>Issued:</strong> In Progress</p>
@@ -248,17 +259,10 @@
                     <p class="cert-summary">In Progress</p>
                 </div>
             </div>
-
-            <div class="cert-card">
-                <img src="./Assets/89-professional-foundations-certificate-boluwatife-ajibero.png" alt="Certificate 1"
-                    style="filter: blur(8px);">
-                <div class="cert-info">
-                    <h3>AWS Cloud Practitioner</h3>
-                    <p><strong>Issued:</strong> In Progress</p>
-                    <p><strong>By:</strong> ALX</p>
-                    <p class="cert-summary">In Progress</p>
-                </div>
-            </div>
+        </div>
+        
+        <div class="cert-cta">
+            <a href="certificates.html" class="cv-btn">See Full Certifications</a>
         </div>
     </section>
 
@@ -302,6 +306,20 @@
             <p>Want to decide fast? Go through all my details and decide in under 2 minutes!</p>
             <button id="startInterview" class="in-touch-btn">Start Quick Interview</button>
             <button id="closeModal" class="cv-btn">Maybe later</button>
+        </div>
+    </div>
+
+    <!-- Certificate Image Modal -->
+    <div id="certModal" class="cert-modal">
+        <div class="cert-modal-content">
+            <span class="cert-modal-close">&times;</span>
+            <img id="certModalImage" src="" alt="Certificate" class="cert-modal-image">
+            <div class="cert-modal-title" id="certModalTitle"></div>
+            <div class="cert-modal-controls">
+                <button id="zoomIn" class="cert-zoom-btn">+</button>
+                <button id="zoomOut" class="cert-zoom-btn">-</button>
+                <button id="resetZoom" class="cert-zoom-btn">Reset</button>
+            </div>
         </div>
     </div>
 

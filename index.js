@@ -69,3 +69,93 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }, 2000);
 });
+
+// Certificate Image Modal Logic
+let currentZoom = 1;
+const certModal = document.getElementById("certModal");
+const certModalImage = document.getElementById("certModalImage");
+const certModalTitle = document.getElementById("certModalTitle");
+const certModalClose = document.querySelector(".cert-modal-close");
+const zoomInBtn = document.getElementById("zoomIn");
+const zoomOutBtn = document.getElementById("zoomOut");
+const resetZoomBtn = document.getElementById("resetZoom");
+
+// Add click event to all certificate images
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("cert-image-clickable")) {
+    const imageSrc = e.target.src;
+    const imageTitle = e.target.getAttribute("data-title") || "Certificate";
+    
+    certModalImage.src = imageSrc;
+    certModalTitle.textContent = imageTitle;
+    currentZoom = 1;
+    certModalImage.style.transform = `scale(${currentZoom})`;
+    
+    certModal.classList.add("show");
+    document.body.style.overflow = "hidden"; // Prevent background scrolling
+  }
+});
+
+// Close modal functionality
+function closeCertModal() {
+  certModal.classList.remove("show");
+  document.body.style.overflow = "auto"; // Restore scrolling
+  currentZoom = 1;
+  certModalImage.style.transform = `scale(${currentZoom})`;
+}
+
+if (certModalClose) {
+  certModalClose.addEventListener("click", closeCertModal);
+}
+
+// Close modal when clicking outside the image
+if (certModal) {
+  certModal.addEventListener("click", (e) => {
+    if (e.target === certModal) {
+      closeCertModal();
+    }
+  });
+}
+
+// Zoom functionality
+if (zoomInBtn) {
+  zoomInBtn.addEventListener("click", () => {
+    currentZoom = Math.min(currentZoom + 0.25, 3); // Max zoom 3x
+    certModalImage.style.transform = `scale(${currentZoom})`;
+  });
+}
+
+if (zoomOutBtn) {
+  zoomOutBtn.addEventListener("click", () => {
+    currentZoom = Math.max(currentZoom - 0.25, 0.5); // Min zoom 0.5x
+    certModalImage.style.transform = `scale(${currentZoom})`;
+  });
+}
+
+if (resetZoomBtn) {
+  resetZoomBtn.addEventListener("click", () => {
+    currentZoom = 1;
+    certModalImage.style.transform = `scale(${currentZoom})`;
+  });
+}
+
+// Keyboard navigation for modal
+document.addEventListener("keydown", (e) => {
+  if (certModal && certModal.classList.contains("show")) {
+    switch(e.key) {
+      case "Escape":
+        closeCertModal();
+        break;
+      case "+":
+      case "=":
+        if (zoomInBtn) zoomInBtn.click();
+        break;
+      case "-":
+        if (zoomOutBtn) zoomOutBtn.click();
+        break;
+      case "0":
+        if (resetZoomBtn) resetZoomBtn.click();
+        break;
+    }
+  }
+});
